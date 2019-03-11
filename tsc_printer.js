@@ -124,15 +124,15 @@ module.exports = {
     sampleje: function () {
         console.log('run sample')
     },
-    printfile: function () {
+    printfile: function (data) {
         var label_variable = { quantity: '1', copy: '1' };
         openport('', true);
         var status = printer_status(100, true);
         clearbuffer('', true);
-        sendcommand('TEXT 250,23,"0",0,10,10,"FEED LINE 1 ABCDEFGHIJ"', true);
-        sendcommand('TEXT 250,43,"0",0,10,10,"FEED LINE 2 KLMNOPGRST"', true);
-        sendcommand('TEXT 250,63,"0",0,10,10,"FEED LINE 3 UVWXYZ...."', true);
-        sendcommand('BARCODE 100,23,"128",2,0,10,10,"NO TAG"', true);
+        sendcommand('TEXT 252,24,"1.EFT",0,1,1,"(' + data.mutu + ') '+data.nama_stok + '"', true);
+        sendcommand('TEXT 252,44,"1.EFT",0,1,1,"B:' + data.berat +', U:'+ data.modal_upah +'"', true);
+        sendcommand('TEXT 252,64,"1.EFT",0,1,1,"' + data.pembekal + '"', true);
+        sendcommand('BARCODE 20,23,"128",38, 2,0,2,2,"'+ data.no_tag +'"', true);
         printlabel(label_variable, true);
         closeport('', true);
     }
