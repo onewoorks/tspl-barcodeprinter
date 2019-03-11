@@ -1,0 +1,13 @@
+{
+  "name": "sample",
+  "version": "0.0.0",
+  "description": "barcode printer direct print",
+  "main": "server.js",
+  "author": {
+    "name": "irwan ibrahim"
+  },
+  "dependencies": {
+    "edge-js": "^11.3.1",
+    "express": "^4.16.4"
+  }
+}
